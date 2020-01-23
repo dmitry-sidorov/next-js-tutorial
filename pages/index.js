@@ -1,9 +1,23 @@
+import Link from 'next/link';
 import Layout from '../components/Layout';
 
-const Index = () => (
+const PostLink = props => (
+    <li>
+        <Link href="/p/[id]" as={`/p/${props.id}`}>
+            <a>{props.id}</a>
+        </Link>
+    </li>
+);
+
+const Blog = () => (
     <Layout>
-        <p>Hello Next.js</p>
+        <h1>My blog</h1>
+        <ul>
+            <PostLink id="hello-nextjs" />
+            <PostLink id="learn-nextjs" />
+            <PostLink id="deploy-nextjs" />
+        </ul>
     </Layout>
 );
 
-export default Index;
+export default Blog;
